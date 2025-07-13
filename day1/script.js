@@ -1,45 +1,55 @@
-// Get the user's name
+// Step 1: Ask the User for input
 let userName = prompt("What is your name?");
-
-// Get the user's birth year (we'll convert it to a number)
-let birthYearInput = prompt("What year were you born?");
-let birthYear = parseInt(birthYearInput); // Convert text to a whole number
-
-// Ask if they are a student (true or false)
+let birthYearString = prompt("What is your birth year?");
 let isStudent = confirm("Are you a student?");
 
-const currentYear = new Date().getFullYear(); 
+// Convert birthYear to a number
+let birthYear = parseInt(birthYearString);
+
+// Variables for output messages
+let finalMessage = "";
+let category = "";
+let studentMessage = "";
+
+// Calculate the user's current age
+const currentYear = new Date().getFullYear();
 let age = currentYear - birthYear;
-
-// Determine age category
-let ageCategory = ""; // This variable will store the age category
-
+// Use conditional logic to categorize their age
 if (age < 13) {
-    ageCategory = "Kid";
+    category = "Kid";
 } else if (age >= 13 && age <= 17) {
-    ageCategory = "Teen";
+    category = "Teen";
 } else if (age >= 18 && age <= 59) {
-    ageCategory = "Adult";
-} else { // If none of the above, they must be 60 or older
-    ageCategory = "Senior";
+    category = "Adult";
+} else if (age >= 60) {
+    category = "Senior";
+} else {
+    category = "Invalid Birth Year";
+    age = "N/A"; // Set age to N/A if invalid
 }
 
-// Add a special message if they are a student
-let studyReminder = "";
+// If the user is a student, also display: "Don't forget to study hard!"
 if (isStudent) {
-    studyReminder = "\nDon't forget to study hard!";
+    studentMessage = "\nDon't forget to study hard!";
 }
 
-// Combine all parts into one final message
-let finalMessage = `Hello ${userName}, you are ${age} years old.\nCategory: ${ageCategory}${studyReminder}`;
+// Construct the final message
+if (age !== "N/A") {
+    finalMessage = `Hello ${userName}, you are ${age} years old.\nCategory: ${category}`;
+} else {
+    finalMessage = `Hello ${userName}, your age could not be determined due to an invalid birth year.\nCategory: ${category}`;
+}
+finalMessage += studentMessage;
 
-// 1. Show in the browser's console (for developers)
-console.log("--- Console Output ---");
+// 1. In the browser console (console.log)
+console.log("--- Smart User Checker App Results ---");
 console.log(finalMessage);
-console.log("---------------------------------");
-
-// 2. Show in alert box
+// 2. In an alert box
 alert(finalMessage);
-
-// 3. Show directly on the web page
-document.getElementById("result").innerText = finalMessage; // Puts the message inside the 'result' area on the page
+// 3. In the HTML page using DOM (document.getElementById(...).innerText)
+const outputDiv = document.getElementById("output");
+if (outputDiv) {
+    outputDiv.innerHTML = `<pre>${finalMessage}</pre>`;// Using <pre> tag to preserve new lines and spaces from the finalMessage
+} else {
+    console.error("Output div not found in the HTML.");
+}
