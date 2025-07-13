@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Employee Evaluation</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h2>Employee Evaluation Form</h2>
+    <form id="employeeForm">
+      <input type="text" id="name" placeholder="Name" required />
+      <input type="number" id="age" placeholder="Age" required />
+      <input type="number" id="experience" placeholder="Years of Experience" required />
+      <input type="number" id="rating" placeholder="Self-Rating (1-10)" required />
+      <input type="number" id="baseSalary" placeholder="Base Salary" required />
+      <button type="submit">Evaluate</button>
+    </form>
+    <div id="output"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
