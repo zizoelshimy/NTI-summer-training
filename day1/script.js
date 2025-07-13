@@ -7,12 +7,12 @@ let birthYear = parseInt(birthYearInput); // Convert text to a whole number
 
 // Ask if they are a student (true or false)
 let isStudent = confirm("Are you a student?");
-// Calculate current age
+
 const currentYear = new Date().getFullYear(); 
 let age = currentYear - birthYear;
 
 // Determine age category
-let ageCategory = ""; // This variable will store "Kid", "Teen", "Adult", or "Senior"
+let ageCategory = ""; // This variable will store the age category
 
 if (age < 13) {
     ageCategory = "Kid";
