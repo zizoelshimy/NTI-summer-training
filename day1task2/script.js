@@ -1,4 +1,4 @@
-document.getElementById("employeeForm").addEventListener("submit", function (e) {
+document.getElementById("employeeForm").addEventListener("submit", function (e) { // Event listener for form submission
   e.preventDefault();
 
   const name = document.getElementById("name").value;
