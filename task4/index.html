@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager Application</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Task Manager Application</h1>
+        
+        <!-- Task Form -->
+        <div class="task-form">
+            <h2>Add New Task</h2>
+            <form id="taskForm">
+                <div class="form-group">
+                    <label for="taskName">Task Name:</label>
+                    <input type="text" id="taskName" placeholder="Enter task name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="taskType">Task Type:</label>
+                    <select id="taskType" required>
+                        <option value="">Select task type</option>
+                        <option value="Task">Task</option>
+                        <option value="In Progress">In Progress</option>
+                        <option value="Done">Done</option>
+                    </select>
+                </div>
+                
+                <button type="submit">Add Task</button>
+            </form>
+        </div>
+
+        <!-- Search and Filter Section -->
+        <div class="search-filter">
+            <div class="search-group">
+                <label for="searchBar">Search Tasks:</label>
+                <input type="text" id="searchBar" placeholder="Search by task name">
+            </div>
+            
+            <div class="filter-group">
+                <label for="filterType">Filter by Type:</label>
+                <select id="filterType">
+                    <option value="">All Tasks</option>
+                    <option value="Task">Task</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Done">Done</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Task Display -->
+        <div class="task-display">
+            <h2>Your Tasks</h2>
+            <div id="taskList" class="task-list">
+                <!-- Tasks will be displayed here dynamically -->
+            </div>
+        </div>
+
+        <!-- Task Statistics -->
+        <div class="task-stats">
+            <div class="stat-item">
+                <span class="stat-label">Total Tasks:</span>
+                <span id="totalTasks">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Completed:</span>
+                <span id="completedTasks">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">In Progress:</span>
+                <span id="inProgressTasks">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Pending:</span>
+                <span id="pendingTasks">0</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
