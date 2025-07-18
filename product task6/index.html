@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Management System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Product Management System</h1>
+        
+        <!-- Search Bar -->
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search by product name or category...">
+            <button id="searchBtn">Search</button>
+            <button id="clearBtn">Clear</button>
+        </div>
+
+        <!-- Filter Options -->
+        <div class="filter-container">
+            <label for="categoryFilter">Filter by Category:</label>
+            <select id="categoryFilter">
+                <option value="">All Categories</option>
+                <option value="Electronics">Electronics</option>
+                <option value="Clothing">Clothing</option>
+                <option value="Books">Books</option>
+                <option value="Home & Garden">Home & Garden</option>
+                <option value="Sports">Sports</option>
+            </select>
+        </div>
+
+        <!-- Product Form -->
+        <div class="form-container">
+            <h2>Product Registration Form</h2>
+            <form id="productForm">
+                <div class="form-group">
+                    <label for="productName">Product Name: <span class="required">*</span></label>
+                    <input type="text" id="productName" required>
+                    <span class="error-message" id="nameError"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="productDescription">Description: <span class="required">*</span></label>
+                    <textarea id="productDescription" rows="3" required></textarea>
+                    <span class="error-message" id="descriptionError"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="productPrice">Price ($): <span class="required">*</span></label>
+                    <input type="number" id="productPrice" step="0.01" min="0" required>
+                    <span class="error-message" id="priceError"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="productCategory">Category: <span class="required">*</span></label>
+                    <select id="productCategory" required>
+                        <option value="">Select Category</option>
+                        <option value="Electronics">Electronics</option>
+                        <option value="Clothing">Clothing</option>
+                        <option value="Books">Books</option>
+                        <option value="Home & Garden">Home & Garden</option>
+                        <option value="Sports">Sports</option>
+                    </select>
+                    <span class="error-message" id="categoryError"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="productAvailability">
+                        <span class="checkmark"></span>
+                        Product is Available
+                    </label>
+                </div>
+                
+                <button type="submit" id="submitBtn">Add Product</button>
+            </form>
+        </div>
+
+        <!-- Products Table -->
+        <div class="table-container">
+            <h2>Products List</h2>
+            <table id="productsTable">
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Category</th>
+                        <th>Availability</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="productsTableBody">
+                </tbody>
+            </table>
+            <div id="noProductsMessage" class="no-products">
+                No products found. Add your first product above!
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
